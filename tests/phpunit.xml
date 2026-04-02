@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd"
+  bootstrap="bootstrap.php"
+  backupGlobals="false"
+  colors="true"
+  convertErrorsToExceptions="true"
+  convertNoticesToExceptions="true"
+  convertWarningsToExceptions="true"
+  verbose="true"
+  failOnRisky="false"
+  failOnWarning="false"
+>
+  <testsuites>
+    <testsuite name="Unit Tests">
+      <directory suffix=".php">./unit/</directory>
+    </testsuite>
+    <testsuite name="Integration Tests">
+      <directory suffix=".php">./integration/</directory>
+    </testsuite>
+  </testsuites>
+  
+  <coverage processUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">../</directory>
+    </include>
+    <exclude>
+      <directory suffix=".php">../tests/</directory>
+      <directory suffix=".php">../node_modules/</directory>
+      <directory suffix=".php">../vendor/</directory>
+      <directory suffix=".php">../plugins/</directory>
+      <file>../404.php</file>
+      <file>../archive.php</file>
+      <file>../category.php</file>
+      <file>../index.php</file>
+      <file>../page.php</file>
+      <file>../search.php</file>
+      <file>../single.php</file>
+      <file>../tag.php</file>
+    </exclude>
+  </coverage>
+  
+  <php>
+    <ini name="display_errors" value="On"/>
+    <ini name="error_reporting" value="E_ALL"/>
+    <ini name="memory_limit" value="256M"/>
+  </php>
+</phpunit>
